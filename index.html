@@ -6,31 +6,66 @@
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
+		//returns the preloads data from geemails function that we cannot see!!! Access each by dot notation: .date .subject .sender and .body!!!
+
+		//1 Running a for loop to extract the data (4: Date,Sender, Subject, Body) from all 10 odjects in the array 'geemail'
+		for( i = 0; i < geemails.length; i++){
+		//Box parent container for first 3 stat sets: Date, Sender, and Subject:
+		var emailBox = document.createElement('div');
+			emailBox.className = "boxForCss";
+			main.appendChild(emailBox)
+		//DATE
+		var dateData = document.createElement('div');
+			dateData.className = "dateContent";
+			dateData.innerHTML = "DATE: " + geemails[i].date;
+			emailBox.appendChild(dateData);
+		//SENDER
+		var senderData = document.createElement('div');
+			senderData.className = "sendContent";
+			senderData.innerHTML = "SENDER: " + geemails[i].sender;
+			emailBox.appendChild(senderData);
+		//SUBJECT
+		var subjectData = document.createElement('div');
+			subjectData.className = "subjectContent";
+			subjectData.innerHTML = "SUBJECT: " + geemails[i].subject;
+			emailBox.appendChild(subjectData);
+		//	
+		//BODY
+		var bodyData = document.createElement('div');
+			bodyData.className = "bodyContent";
+			bodyData.innerHTML = "SHOW EMAIL: " + geemails[i].body;
+			subjectData.appendChild(bodyData);	
+		}
+		//end of 1
+		
+		//2. here is the click function that will shoe the body of teh email (.bodyContent) when you click on the subject (.subjectContent)
+		var openBody = document.getElementsByClassName('subjectContent');
+
+		for(i=0; i<openBody.length; i++){
+		openBody[i].addEventListener('click', showBody);
+		}
+
+		function showBody(){
+		var getBody = this.querySelectorAll('.bodyContent')[0];
+			
+		if(getBody.style.display === 'block'){
+			getBody.style.display = 'none';
+		}else{
+			getBody.style.display = 'block';
+		}
+		}
+		//end of 2	
+	
       };
     </script>
 	</head>
 	<body>
+		<header id="topHeader">
+			<h1>GeeMail Inbox</h1>
+		</header>
 		<div class="container" id="main">
-			Build Me!
 <!-- 
-	2. Create a basic page layout via HTML/CSS with a top header section with the name of the application and a content section where you will display the messages. 
--->
 
-<!-- 
-	3. When your page loads, via JavaScript access our prepopulated data stored in the `window.geemails` variable. Each object in the array has the following properties:
-	* date - The date message was sent
-	* subject - The subject of the message
-	* sender - The sender of the message
-	* body - The GeeMail message content 
--->
-
-<!-- 
-	4. With this data you must make a visual list of mail messages on the page with the following minimum requirements.
-	* Each message should have it's own row showing:
-		* Date
-		* Sender
-		* Subject
 	* When clicking on a message you must provide some method of showing the message for that row. 
 -->
 
