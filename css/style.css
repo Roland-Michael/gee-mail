@@ -1,0 +1,39 @@
+h1{
+    margin-left: 15px;
+    margin-top: 15px;
+    border: 2px;
+    
+}
+#main{
+    font-family: sans-serif;
+    font-size: 20px
+
+}
+/* 	4. With this data you must make a visual list of mail messages on the page with the following minimum requirements.
+	* Each message should have it's own row showing:
+		* Date
+		* Sender
+        * Subject
+*/
+
+
+.dateContent{
+    background-color: rgb(141, 94, 141);
+    display: inline;
+}
+
+.sendContent{
+    background-color: rgb(93, 132, 240); 
+    display: inline;
+
+}
+
+.subjectContent{
+    background-color: rgb(103, 197, 103);
+    display: inline;
+}
+
+.bodyContent{
+    background-color: rgb(185, 185, 109);
+    display: none;
+}
