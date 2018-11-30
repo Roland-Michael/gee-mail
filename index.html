@@ -7,7 +7,7 @@
 
 		//1 Running a for loop to extract the data (4: Date,Sender, Subject, Body) from all 10 odjects in the array 'geemails'
 		for( i = 0; i < geemails.length; i++){
-		//appending <tr>'s under the <table> in HTML. This will hold the <td> (below) for the DATEs, SENDERs, and SUBJECTs.
+		//appending <tr>'s under the <table> in HTML. This will hold the <td> for the 4 object properties below it.
 		var emailBox = document.createElement('tr');
 			emailBox.className = "cssBox";
 			emailTable.appendChild(emailBox)
@@ -26,7 +26,7 @@
 			subjectData.className = "subjectContent";
 			subjectData.innerHTML = "SUBJECT: " + geemails[i].subject;
 			emailBox.appendChild(subjectData);
-		//appending 
+		//appending BODY from geemails to 'cssBox' as a <p>
 		var bodyData = document.createElement('p');
 			bodyData.className = "bodyContent";
 			bodyData.innerHTML = "SHOW EMAIL: " + geemails[i].body;
@@ -34,7 +34,7 @@
 		}
 		//end of 1
 	
-		//2. Here is the click event fucntion that will show the body of the email when you click anywhere within the 'cssBox' (date,sender,subject):
+		//2. Here is the click event function that will show the body of the email when you click anywhere within the 'cssBox' (date,sender,subject):
 		var openBody = document.getElementsByClassName('cssBox');
 
 		for(i=0; i<openBody.length; i++){
@@ -51,7 +51,14 @@
 		}
 		}
 		//end of 2	
-	
+	//3. Inbox count calculated and then appended to heading in HTML: 
+		var emailCount = document.createElement('div');
+			emailCount.id = "countCalc";
+			emailCount.innerHTML = "Inbox (" + geemails.length + ")";
+			topHeader.appendChild(emailCount);
+		
+
+
       };
     </script>
 	</head>
@@ -67,10 +74,7 @@
 					<th class = "subjectHead">SUBJECT</th>
 				</tr>
 			</table>
-<!-- 
 
-	* When clicking on a message you must provide some method of showing the message for that row. 
--->
 
 <!--
 	 5. You must show an inbox count somewhere on the page to show the current number of messages in your inbox. 
