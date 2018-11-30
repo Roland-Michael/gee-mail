@@ -4,34 +4,31 @@
 		<link href="css/style.css" rel="stylesheet" media="screen">
     <script>
       window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-		//returns the preloads data from geemails function that we cannot see!!! Access each by dot notation: .date .subject .sender and .body!!!
 
 		//1 Running a for loop to extract the data (4: Date,Sender, Subject, Body) from all 10 odjects in the array 'geemail'
 		for( i = 0; i < geemails.length; i++){
 		//Box parent container for first 3 stat sets: Date, Sender, and Subject:
-		var emailBox = document.createElement('div');
-			emailBox.className = "boxForCss";
-			main.appendChild(emailBox)
+		var emailBox = document.createElement('tr');
+			emailBox.className = "cssBox";
+			emailTable.appendChild(emailBox)
 		//DATE
-		var dateData = document.createElement('div');
+		var dateData = document.createElement('td');
 			dateData.className = "dateContent";
 			dateData.innerHTML = "DATE: " + geemails[i].date;
 			emailBox.appendChild(dateData);
 		//SENDER
-		var senderData = document.createElement('div');
+		var senderData = document.createElement('td');
 			senderData.className = "sendContent";
 			senderData.innerHTML = "SENDER: " + geemails[i].sender;
 			emailBox.appendChild(senderData);
 		//SUBJECT
-		var subjectData = document.createElement('div');
+		var subjectData = document.createElement('td');
 			subjectData.className = "subjectContent";
 			subjectData.innerHTML = "SUBJECT: " + geemails[i].subject;
 			emailBox.appendChild(subjectData);
 		//	
 		//BODY
-		var bodyData = document.createElement('div');
+		var bodyData = document.createElement('p');
 			bodyData.className = "bodyContent";
 			bodyData.innerHTML = "SHOW EMAIL: " + geemails[i].body;
 			subjectData.appendChild(bodyData);	
@@ -64,6 +61,13 @@
 			<h1>GeeMail Inbox</h1>
 		</header>
 		<div class="container" id="main">
+			<table id="emailTable">
+				<tr>
+					<th class = "dateHead">DATE</th>
+					<th class = "senderHead">SENDER</th>
+					<th class = "subjectHead">SUBJECT</th>
+				</tr>
+			</table>
 <!-- 
 
 	* When clicking on a message you must provide some method of showing the message for that row. 
