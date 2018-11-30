@@ -31,12 +31,13 @@
 			bodyData.innerHTML = "SHOW EMAIL: " + geemails[i].body;
 			emailBox.appendChild(bodyData);	
 		}
-		//PART 6: Set a recurring function to via the JavaScript `setInterval` function that will call our existing `getNewMessage` function that we have created for you that will return a newly created message with the same properties as your previous messages.
-		
+		//Set a recurring function to via the JavaScript `setInterval` function that will call our existing `getNewMessage` function that we have created for you that will return a newly created message with the same properties as your previous messages.
+
 		setInterval(getNewMessage, 10000);
 		var testNewMessage = getNewMessage();
-		console.log(testNewMessage);
-
+		//console.log(testNewMessage); TEST:var is an object
+		
+		//repeat part 1 (geemails), only i had to create new var names (new_) since the existing ones resulted in the html not lining up correctly on the page; couldn't figure out why
 		var newemailBox = document.createElement('tr');
 			newemailBox.className = "cssBox";
 			emailTable.appendChild(newemailBox);
@@ -77,45 +78,19 @@
 			}
 		}
 		//end of 2	
-	//3. Inbox count calculated and then appended to heading in HTML: 
+	//3. Inbox count calculated and then appended to heading in HTML:
+	
+		var totalEmails = document.querySelectorAll('.cssBox').length;	
 		var emailCount = document.createElement('div');
 			emailCount.id = "countCalc";
-			emailCount.innerHTML = "Inbox (" + geemails.length + ")";
+			emailCount.innerHTML = "Inbox (" + totalEmails + ")";
 			topHeader.appendChild(emailCount);
 
 	//4.
 
-	//long form. Still doesn't work because getNewMessage is a function, not an array or object.
-	/*trying above for formatting
+	/* tried helper function for the getNewMessage part, but failed:
 		setInterval(getNewMessage, 10000);
 		var testNewMessage = getNewMessage();
-		console.log(testNewMessage);
-
-		//appending DATE from geemails to 'cssBox' as <td>
-		var dateData = document.createElement('td');
-			dateData.className = "dateContent";
-			dateData.innerHTML = "DATE: " + testNewMessage.date;
-			emailBox.appendChild(dateData);
-		//appending SENDER from geemails to 'cssBox' as <td>
-		var senderData = document.createElement('td');
-			senderData.className = "sendContent";
-			senderData.innerHTML = "SENDER: " + testNewMessage.sender;
-			emailBox.appendChild(senderData);
-		//appending SUBJECT from geemails to 'cssBox' as <td>
-		var subjectData = document.createElement('td');
-			subjectData.className = "subjectContent";
-			subjectData.innerHTML = "SUBJECT: " + testNewMessage.subject;
-			emailBox.appendChild(subjectData);
-		//appending BODY from geemails to 'cssBox' as a <p>
-		var bodyData = document.createElement('p');
-			bodyData.className = "bodyContent";
-			bodyData.innerHTML = "SHOW EMAIL: " + testNewMessage.body;
-			emailBox.appendChild(bodyData);	
-	*/
-
-	/* tried helper function, failed:
-		setInterval(getNewMessage, 10000);
-		console.log(getNewMessage);
 
 		function youGotMail(xData, xTableData, xContent, prop){
 			var xData = document.createElement(xTableData);
@@ -127,7 +102,7 @@
 		youGotMail("senderData", "td", "sendContent", "sender" );
 		youGotMail("subjectData", "td", "subjectContent", "subject");
 		youGotMail("bodyData", "td", "bodyContent", "body");
-		console.log(youGotMail);
+		console.log(youGotMail); TEST
 		*/
       };
     </script>
