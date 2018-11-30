@@ -4,7 +4,6 @@
 		<link href="css/style.css" rel="stylesheet" media="screen">
     <script>
       window.onload = function(){
-
 		//1 Running a for loop to extract the data (4: Date,Sender, Subject, Body) from all 10 odjects in the array 'geemails'
 		for( i = 0; i < geemails.length; i++){
 		//appending <tr>'s under the <table> in HTML. This will hold the <td> for the 4 object properties below it.
@@ -32,23 +31,50 @@
 			bodyData.innerHTML = "SHOW EMAIL: " + geemails[i].body;
 			emailBox.appendChild(bodyData);	
 		}
-		//end of 1
-	
+		//PART 6: Set a recurring function to via the JavaScript `setInterval` function that will call our existing `getNewMessage` function that we have created for you that will return a newly created message with the same properties as your previous messages.
+		
+		setInterval(getNewMessage, 10000);
+		var testNewMessage = getNewMessage();
+		console.log(testNewMessage);
+
+		var newemailBox = document.createElement('tr');
+			newemailBox.className = "cssBox";
+			emailTable.appendChild(newemailBox);
+		//appending DATE from testNewMessage to 'cssBox' as <td>
+		var newdateData = document.createElement('td');
+			newdateData.className = "dateContent";
+			newdateData.innerHTML = "DATE: " + testNewMessage.date;
+			newemailBox.appendChild(newdateData);
+		//appending SENDER from testNewMessage to 'cssBox' as <td>
+		var newsenderData = document.createElement('td');
+			newsenderData.className = "sendContent";
+			newsenderData.innerHTML = "SENDER: " + testNewMessage.sender;
+			newemailBox.appendChild(newsenderData);
+		//appending SUBJECT from testNewMessage to 'cssBox' as <td>
+		var newsubjectData = document.createElement('td');
+			newsubjectData.className = "subjectContent";
+			newsubjectData.innerHTML = "SUBJECT: " + testNewMessage.subject;
+			newemailBox.appendChild(newsubjectData);
+		//appending BODY from testNewMessage to 'cssBox' as a <p>
+		var newbodyData = document.createElement('p');
+			newbodyData.className = "bodyContent";
+			newbodyData.innerHTML = "SHOW EMAIL: " + testNewMessage.body;
+			newemailBox.appendChild(newbodyData);	
 		//2. Here is the click event function that will show the body of the email when you click anywhere within the 'cssBox' (date,sender,subject):
 		var openBody = document.getElementsByClassName('cssBox');
 
 		for(i=0; i<openBody.length; i++){
-		openBody[i].addEventListener('click', showBody);
+			openBody[i].addEventListener('click', showBody);
 		}
 
 		function showBody(){
-		var getBody = this.querySelectorAll('.bodyContent')[0];
+			var getBody = this.querySelectorAll('.bodyContent')[0];
 			
-		if(getBody.style.display === 'block'){
+			if(getBody.style.display === 'block'){
 			getBody.style.display = 'none';
-		}else{
+			}else{
 			getBody.style.display = 'block';
-		}
+			}
 		}
 		//end of 2	
 	//3. Inbox count calculated and then appended to heading in HTML: 
@@ -56,9 +82,53 @@
 			emailCount.id = "countCalc";
 			emailCount.innerHTML = "Inbox (" + geemails.length + ")";
 			topHeader.appendChild(emailCount);
-		
 
+	//4.
 
+	//long form. Still doesn't work because getNewMessage is a function, not an array or object.
+	/*trying above for formatting
+		setInterval(getNewMessage, 10000);
+		var testNewMessage = getNewMessage();
+		console.log(testNewMessage);
+
+		//appending DATE from geemails to 'cssBox' as <td>
+		var dateData = document.createElement('td');
+			dateData.className = "dateContent";
+			dateData.innerHTML = "DATE: " + testNewMessage.date;
+			emailBox.appendChild(dateData);
+		//appending SENDER from geemails to 'cssBox' as <td>
+		var senderData = document.createElement('td');
+			senderData.className = "sendContent";
+			senderData.innerHTML = "SENDER: " + testNewMessage.sender;
+			emailBox.appendChild(senderData);
+		//appending SUBJECT from geemails to 'cssBox' as <td>
+		var subjectData = document.createElement('td');
+			subjectData.className = "subjectContent";
+			subjectData.innerHTML = "SUBJECT: " + testNewMessage.subject;
+			emailBox.appendChild(subjectData);
+		//appending BODY from geemails to 'cssBox' as a <p>
+		var bodyData = document.createElement('p');
+			bodyData.className = "bodyContent";
+			bodyData.innerHTML = "SHOW EMAIL: " + testNewMessage.body;
+			emailBox.appendChild(bodyData);	
+	*/
+
+	/* tried helper function, failed:
+		setInterval(getNewMessage, 10000);
+		console.log(getNewMessage);
+
+		function youGotMail(xData, xTableData, xContent, prop){
+			var xData = document.createElement(xTableData);
+			xData.className = xContent;
+			xData.innerHTML = getNewMessage.prop;
+			emailBox.appendchild(xData);	
+		}
+		youGotMail("dateData", "td", "dateContent", "date");
+		youGotMail("senderData", "td", "sendContent", "sender" );
+		youGotMail("subjectData", "td", "subjectContent", "subject");
+		youGotMail("bodyData", "td", "bodyContent", "body");
+		console.log(youGotMail);
+		*/
       };
     </script>
 	</head>
@@ -74,24 +144,6 @@
 					<th class = "subjectHead">SUBJECT</th>
 				</tr>
 			</table>
-
-
-<!--
-	 5. You must show an inbox count somewhere on the page to show the current number of messages in your inbox. 
--->
-
-<!-- 
-	6. Set a recurring function to via the JavaScript `setInterval` function that will call our existing `getNewMessage` function that we have created for you that will return a newly created message with the same properties as your previous messages. 
--->
-
-<!-- 
-	6. All CSS styles should be created in the `css\style.css` file included in the project.  
--->
-
-<!--
-	 7. All JavaScript should be created in the `<head>` element in your included `index.html` file inside of the window.onload function already created in the `<head>` section.
--->
-
 		</div>
 	</body>
 </html>
