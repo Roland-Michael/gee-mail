@@ -13,22 +13,22 @@
 		//appending DATE from geemails to 'cssBox' as <td>
 		var dateData = document.createElement('td');
 			dateData.className = "dateContent";
-			dateData.innerHTML = "DATE: " + geemails[i].date;
+			dateData.innerHTML = geemails[i].date;
 			emailBox.appendChild(dateData);
 		//appending SENDER from geemails to 'cssBox' as <td>
 		var senderData = document.createElement('td');
 			senderData.className = "sendContent";
-			senderData.innerHTML = "SENDER: " + geemails[i].sender;
+			senderData.innerHTML = geemails[i].sender;
 			emailBox.appendChild(senderData);
 		//appending SUBJECT from geemails to 'cssBox' as <td>
 		var subjectData = document.createElement('td');
 			subjectData.className = "subjectContent";
-			subjectData.innerHTML = "SUBJECT: " + geemails[i].subject;
+			subjectData.innerHTML = geemails[i].subject;
 			emailBox.appendChild(subjectData);
 		//appending BODY from geemails to 'cssBox' as a <p>
 		var bodyData = document.createElement('p');
 			bodyData.className = "bodyContent";
-			bodyData.innerHTML = "SHOW EMAIL: " + geemails[i].body;
+			bodyData.innerHTML = geemails[i].body;
 			emailBox.appendChild(bodyData);	
 		}
 		//Set a recurring function to via the JavaScript `setInterval` function that will call our existing `getNewMessage` function that we have created for you that will return a newly created message with the same properties as your previous messages.
@@ -44,22 +44,22 @@
 		//appending DATE from testNewMessage to 'cssBox' as <td>
 		var newdateData = document.createElement('td');
 			newdateData.className = "dateContent";
-			newdateData.innerHTML = "DATE: " + testNewMessage.date;
+			newdateData.innerHTML = testNewMessage.date;
 			newemailBox.appendChild(newdateData);
 		//appending SENDER from testNewMessage to 'cssBox' as <td>
 		var newsenderData = document.createElement('td');
 			newsenderData.className = "sendContent";
-			newsenderData.innerHTML = "SENDER: " + testNewMessage.sender;
+			newsenderData.innerHTML = testNewMessage.sender;
 			newemailBox.appendChild(newsenderData);
 		//appending SUBJECT from testNewMessage to 'cssBox' as <td>
 		var newsubjectData = document.createElement('td');
 			newsubjectData.className = "subjectContent";
-			newsubjectData.innerHTML = "SUBJECT: " + testNewMessage.subject;
+			newsubjectData.innerHTML = testNewMessage.subject;
 			newemailBox.appendChild(newsubjectData);
 		//appending BODY from testNewMessage to 'cssBox' as a <p>
 		var newbodyData = document.createElement('p');
 			newbodyData.className = "bodyContent";
-			newbodyData.innerHTML = "SHOW EMAIL: " + testNewMessage.body;
+			newbodyData.innerHTML = testNewMessage.body;
 			newemailBox.appendChild(newbodyData);	
 		//2. Here is the click event function that will show the body of the email when you click anywhere within the 'cssBox' (date,sender,subject):
 		var openBody = document.getElementsByClassName('cssBox');
