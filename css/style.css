@@ -30,11 +30,16 @@ table{
     padding: 5px;
     background-color: rgb(241, 239, 239);
 }
+
 tr{
     text-align: left;
-    margin-top: 15px;
+    margin-top: 5px;
     margin-left: 15px;
     float: left;
+}
+
+.clearFix{
+    clear: both;
 }
 
 th{
@@ -43,57 +48,35 @@ th{
     color: black;
     border-bottom: 1px rgb(20, 77, 20) solid;
     border-width: 2px;
+    padding-bottom: 10px;
 }
 
 .dateHead, .dateContent{
-    width: 620px;
-}
-.dateContent{
-    /* border-right: 1px rgb(20, 77, 20) dotted; */
+    width: 600px;
 }
 
 .senderHead, .sendContent{
     width: 200px;
 }
 
-.sendContent{
-    /* border-right: 1px rgb(20, 77, 20) dotted; */
-}
-
 .subjectHead, .subjectContent{
     width: 320px;
 }
 
-.subjectContent{
-    /* border-right: 1px rgb(20, 77, 20) dotted; */
-}
-
-.clearFix{
-    clear: both;
-}
-
 td{
     border-bottom: 2px grey dotted;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
-
-p{
-
-}
-
-
 
 .bodyContent{
     border-bottom: 2px grey dotted;
     padding: 10px;
     border-left: 2px grey dotted;
     border-right: 2px grey dotted;
-    width: 1120px;
-    font-size: 20px;
+    width: 1100px;
     line-height: 1.2em;
+    color: rgb(20, 77, 20);
     font-weight: bold;
-    padding-top: 10px;
-    padding-top: 10px;
     display: none;
     
 }

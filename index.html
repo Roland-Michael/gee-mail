@@ -1,10 +1,10 @@
 <html>
 	<head>
 		<script src="js/mail-generator.js"></script>
-		<link href="css/style.css" rel="stylesheet" media="screen">
+	<link href="css/style.css" rel="stylesheet" media="screen">
     <script>
       window.onload = function(){
-		//1 Running a for loop to extract the data (4: Date,Sender, Subject, Body) from all 10 odjects in the array 'geemails'
+		//1. Running a for loop to extract the data (4: Date,Sender, Subject, Body) from all 10 odjects in the array 'geemails'
 		for( i = 0; i < geemails.length; i++){
 		//appending <tr>'s under the <table> in HTML. This will hold the <td> for the 4 object properties below it.
 		var emailBox = document.createElement('tr');
@@ -48,8 +48,8 @@
 			getBody.style.display = 'block';
 			}
 		}
-		//end of 2	
-	//3. Inbox count calculated and then appended to heading in HTML:
+			
+		//3. Inbox count calculated and then appended to heading in HTML:
 	
 		var totalEmails = document.querySelectorAll('.cssBox').length;	
 		var emailCount = document.createElement('div');
@@ -57,7 +57,7 @@
 			emailCount.innerHTML = "Inbox (" + totalEmails + ")";
 			topHeader.appendChild(emailCount);
 
-		//Set a recurring function to via the JavaScript `setInterval` function that will call our existing `getNewMessage` function that we have created for you that will return a newly created message with the same properties as your previous messages.
+		//4. Set a recurring function to via the JavaScript `setInterval` function that will call our existing `getNewMessage` function that we have created for you that will return a newly created message with the same properties as your previous messages.
 		
 		function youGotMail(){
 		var testNewMessage = getNewMessage();
@@ -88,6 +88,8 @@
 			newbodyData.innerHTML = testNewMessage.body;
 			newemailBox.appendChild(newbodyData);
 
+		//click addEventListener (similar to geeMails)
+
 		var openBody = document.getElementsByClassName('cssBox');
 
 		for(i=0; i<openBody.length; i++){
@@ -103,41 +105,30 @@
 				getBody.style.display = 'block';
 			}
 		}
-//end of 2	
-//3. Inbox count calculated and then appended to heading in HTML:
 
-		// var totalEmails = document.querySelectorAll('.cssBox').length;	
-		// var emailCount = document.createElement('div');
+		//email count. Just updating VAR totalEmails for each new email
+
 		emailCount.innerHTML = "Inbox (" + ++totalEmails + ")";
-		// topHeader.appendChild(emailCount);
 		}	
 
-
-		//TEST
-		// console.log(testNewMessage);
-		// console.log(getNewMessage); 
-
-
-		
-	//4.
 		setInterval(youGotMail, 5000);
 
-	/* tried helper function for the getNewMessage part, but failed:
-		setInterval(getNewMessage, 10000);
-		var testNewMessage = getNewMessage();
+/* tried helper function for the getNewMessage part, but failed:
+setInterval(getNewMessage, 10000);
+var testNewMessage = getNewMessage();
 
-		function youGotMail(xData, xTableData, xContent, prop){
-			var xData = document.createElement(xTableData);
-			xData.className = xContent;
-			xData.innerHTML = getNewMessage.prop;
-			emailBox.appendchild(xData);	
-		}
-		youGotMail("dateData", "td", "dateContent", "date");
-		youGotMail("senderData", "td", "sendContent", "sender" );
-		youGotMail("subjectData", "td", "subjectContent", "subject");
-		youGotMail("bodyData", "td", "bodyContent", "body");
-		console.log(youGotMail); TEST
-		*/
+function youGotMail(xData, xTableData, xContent, prop){
+var xData = document.createElement(xTableData);
+xData.className = xContent;
+xData.innerHTML = getNewMessage.prop;
+emailBox.appendchild(xData);	
+}
+youGotMail("dateData", "td", "dateContent", "date");
+youGotMail("senderData", "td", "sendContent", "sender" );
+youGotMail("subjectData", "td", "subjectContent", "subject");
+youGotMail("bodyData", "td", "bodyContent", "body");
+console.log(youGotMail); TEST
+*/
       };
     </script>
 	</head>
@@ -152,7 +143,8 @@
 					<th class = "senderHead">SENDER</th>
 					<th class = "subjectHead">SUBJECT</th>
 				</tr>
-				<div class = 'clearFix'></div>
+				<div class = 'clearFix'></div>  
+				<!-- Googled this, not even sure if it is working, but wanted to clear out the float: left applied to the <tr>. This was the only way I could get the <td> in the <tr> to line up in table format, with the <p> (.bodyContent) lying below it all. -->
 			</table>
 		</div>
 	</body>
