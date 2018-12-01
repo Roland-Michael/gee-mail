@@ -1,39 +1,64 @@
-h1{
-    margin-left: 15px;
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    margin: 25px;
+    border: 2px red solid;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#countCalc{
+    font: 20px black italic;
     margin-top: 15px;
-    border: 2px;
-    
 }
+
+.container{ 
+
+}
+
 #main{
-    font-family: sans-serif;
-    font-size: 20px
 
 }
-/* 	4. With this data you must make a visual list of mail messages on the page with the following minimum requirements.
-	* Each message should have it's own row showing:
-		* Date
-		* Sender
-        * Subject
-*/
 
+table{
+    font-size: 20px;
+    color: navy;
+    margin: 25px;
+    border: 5px yellow solid;
+    border-radius: 15px;
+    padding: 15px;
+}
+tr{
+    text-align: left;
+    margin-top: 15px;
+    margin-left: 15px;
+    float: left;
+    width: 80%; 
+}
+th{
 
-.dateContent{
-    background-color: rgb(141, 94, 141);
+}
+.dateContent, .sendContent, .subjectContent{
+    border-bottom: 1px black dotted;
+    padding: 10px;
+
+}
+
+.dateHead, .senderHead, .subjectHead{
+    text-align: left;
+    margin-top: 15px;
+    margin-left: 15px;
     display: inline;
+    color: blue;
 }
 
-.sendContent{
-    background-color: rgb(93, 132, 240); 
-    display: inline;
-
-}
-
-.subjectContent{
-    background-color: rgb(103, 197, 103);
-    display: inline;
-}
 
 .bodyContent{
-    background-color: rgb(185, 185, 109);
+    border-bottom: 2px black dotted;
+    font-weight: bold;
+
+    padding: 10px;
     display: none;
 }
