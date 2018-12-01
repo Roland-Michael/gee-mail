@@ -31,36 +31,7 @@
 			bodyData.innerHTML = geemails[i].body;
 			emailBox.appendChild(bodyData);	
 		}
-		//Set a recurring function to via the JavaScript `setInterval` function that will call our existing `getNewMessage` function that we have created for you that will return a newly created message with the same properties as your previous messages.
 
-		setInterval(getNewMessage, 10000);
-		var testNewMessage = getNewMessage();
-		//console.log(testNewMessage); TEST:var is an object
-		
-		//repeat part 1 (geemails), only i had to create new var names (new_) since the existing ones resulted in the html not lining up correctly on the page; couldn't figure out why
-		var newemailBox = document.createElement('tr');
-			newemailBox.className = "cssBox";
-			emailTable.appendChild(newemailBox);
-		//appending DATE from testNewMessage to 'cssBox' as <td>
-		var newdateData = document.createElement('td');
-			newdateData.className = "dateContent";
-			newdateData.innerHTML = testNewMessage.date;
-			newemailBox.appendChild(newdateData);
-		//appending SENDER from testNewMessage to 'cssBox' as <td>
-		var newsenderData = document.createElement('td');
-			newsenderData.className = "sendContent";
-			newsenderData.innerHTML = testNewMessage.sender;
-			newemailBox.appendChild(newsenderData);
-		//appending SUBJECT from testNewMessage to 'cssBox' as <td>
-		var newsubjectData = document.createElement('td');
-			newsubjectData.className = "subjectContent";
-			newsubjectData.innerHTML = testNewMessage.subject;
-			newemailBox.appendChild(newsubjectData);
-		//appending BODY from testNewMessage to 'cssBox' as a <p>
-		var newbodyData = document.createElement('p');
-			newbodyData.className = "bodyContent";
-			newbodyData.innerHTML = testNewMessage.body;
-			newemailBox.appendChild(newbodyData);	
 		//2. Here is the click event function that will show the body of the email when you click anywhere within the 'cssBox' (date,sender,subject):
 		var openBody = document.getElementsByClassName('cssBox');
 
@@ -86,7 +57,70 @@
 			emailCount.innerHTML = "Inbox (" + totalEmails + ")";
 			topHeader.appendChild(emailCount);
 
+		//Set a recurring function to via the JavaScript `setInterval` function that will call our existing `getNewMessage` function that we have created for you that will return a newly created message with the same properties as your previous messages.
+		
+		function youGotMail(){
+		var testNewMessage = getNewMessage();
+
+		//repeat part 1 (geemails), for getNewMessage(), only treat it as an object rather than an array, so no for loop necessary. Changing variable names even though I could use the same (adding new_ to each)
+
+		var newemailBox = document.createElement('tr');
+			newemailBox.className = "cssBox";
+			emailTable.appendChild(newemailBox);
+
+		var newdateData = document.createElement('td');
+			newdateData.className = "dateContent";
+			newdateData.innerHTML = testNewMessage.date;
+			newemailBox.appendChild(newdateData);
+
+		var newsenderData = document.createElement('td');
+			newsenderData.className = "sendContent";
+			newsenderData.innerHTML = testNewMessage.sender;
+			newemailBox.appendChild(newsenderData);
+
+		var newsubjectData = document.createElement('td');
+			newsubjectData.className = "subjectContent";
+			newsubjectData.innerHTML = testNewMessage.subject;
+			newemailBox.appendChild(newsubjectData);
+
+		var newbodyData = document.createElement('p');
+			newbodyData.className = "bodyContent";
+			newbodyData.innerHTML = testNewMessage.body;
+			newemailBox.appendChild(newbodyData);
+
+		var openBody = document.getElementsByClassName('cssBox');
+
+		for(i=0; i<openBody.length; i++){
+			openBody[i].addEventListener('click', showBody);
+		}
+
+		function showBody(){
+			var getBody = this.querySelectorAll('.bodyContent')[0];
+	
+			if(getBody.style.display === 'block'){
+				getBody.style.display = 'none';
+			}else{
+				getBody.style.display = 'block';
+			}
+		}
+//end of 2	
+//3. Inbox count calculated and then appended to heading in HTML:
+
+		// var totalEmails = document.querySelectorAll('.cssBox').length;	
+		// var emailCount = document.createElement('div');
+		emailCount.innerHTML = "Inbox (" + ++totalEmails + ")";
+		// topHeader.appendChild(emailCount);
+		}	
+
+
+		//TEST
+		// console.log(testNewMessage);
+		// console.log(getNewMessage); 
+
+
+		
 	//4.
+		setInterval(youGotMail, 5000);
 
 	/* tried helper function for the getNewMessage part, but failed:
 		setInterval(getNewMessage, 10000);
@@ -118,6 +152,7 @@
 					<th class = "senderHead">SENDER</th>
 					<th class = "subjectHead">SUBJECT</th>
 				</tr>
+				<div class = 'clearFix'></div>
 			</table>
 		</div>
 	</body>
