@@ -51,17 +51,22 @@
 			
 		//3. Inbox count calculated and then appended to heading in HTML:
 	
-		var totalEmails = document.querySelectorAll('.cssBox').length;	
+		// var totalEmails = document.querySelectorAll('.cssBox').length;	
+		// var emailCount = document.createElement('div');
+		// 	emailCount.id = "countCalc";
+		// 	emailCount.innerHTML = "Inbox (" + totalEmails + ")";
+		// 	topHeader.appendChild(emailCount);
+		var totalEmails = geemails.length;
 		var emailCount = document.createElement('div');
 			emailCount.id = "countCalc";
-			emailCount.innerHTML = "Inbox (" + totalEmails + ")";
+			emailCount.innerHTML =  "Inbox (" +totalEmails + ")";
 			topHeader.appendChild(emailCount);
 
 		//4. Set a recurring function to via the JavaScript `setInterval` function that will call our existing `getNewMessage` function that we have created for you that will return a newly created message with the same properties as your previous messages.
 		
 		function youGotMail(){
 		var testNewMessage = getNewMessage();
-
+		console.log(testNewMessage);
 		//repeat part 1 (geemails), for getNewMessage(), only treat it as an object rather than an array, so no for loop necessary. Changing variable names even though I could use the same (adding new_ to each)
 
 		var newemailBox = document.createElement('tr');
@@ -90,21 +95,21 @@
 
 		//click addEventListener (similar to geeMails)
 
-		var openBody = document.getElementsByClassName('cssBox');
+		// var openBody = document.getElementsByClassName('cssBox');
 
-		for(i=0; i<openBody.length; i++){
-			openBody[i].addEventListener('click', showBody);
-		}
+		// for(i=0; i<openBody.length; i++){
+		// 	openBody[i].addEventListener('click', showBody);
+		// }
 
-		function showBody(){
-			var getBody = this.querySelectorAll('.bodyContent')[0];
+		// function showBody(){
+		// 	var getBody = this.querySelectorAll('.bodyContent')[0];
 	
-			if(getBody.style.display === 'block'){
-				getBody.style.display = 'none';
-			}else{
-				getBody.style.display = 'block';
-			}
-		}
+		// 	if(getBody.style.display === 'block'){
+		// 		getBody.style.display = 'none';
+		// 	}else{
+		// 		getBody.style.display = 'block';
+		// 	}
+		// }
 
 		//email count. Just updating VAR totalEmails for each new email
 
